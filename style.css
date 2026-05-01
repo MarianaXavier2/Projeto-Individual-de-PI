@@ -150,7 +150,7 @@ height: 90vh;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .cadastro button {
@@ -160,6 +160,33 @@ height: 90vh;
     /* border-style: none; */
 }
 
-.cadastro h5, .cadastro h2, .cadastro p {
-    margin: 2px;
+
+.cadastro h2, .cadastro p {
+    margin: 1rem;
+    font-size: 30px;
 }
+.cadastro h2 {
+    margin-bottom: 3rem;
+    font-size: 45px;
+}
+
+input, .cadastro h5{
+    width: 20rem;
+    height: 1.5rem;
+    font-size: 2rem;
+    margin: 1.5rem;
+}
+
+button {
+    width: 8rem;
+    height: 2.5rem;
+    font-size: x-large;
+    margin-top: 0.5rem;
+}
+
+.login button {
+    width: 6rem;
+}
+
+/* login */
+
