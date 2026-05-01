@@ -1,0 +1,103 @@
+
+@font-face{
+    font-family: 'Glamor';
+    src: url(/fonts/GlamorOTF/Glamor-Regular.otf) format(opentype);
+
+}
+
+body {
+    margin: 0px;
+    background-color: #FFD7D7;
+    width: 100%;
+    height: 100%;
+}
+/* 
+https://www.designerd.com.br/fontes-elegantes/ */
+
+ .header{
+    font-family: 'Glamor', sans-serif;
+    font-size: 35px;
+    background-color: #F26475;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+}
+
+.links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.links, a {
+margin: 10px;
+text-decoration: none;
+font-size: 20px;
+color: #fff2f2;
+}
+
+
+/* apresentação */
+
+.apresentacao {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.apresentacao-texto {
+    width: 400px;
+}
+
+.imgAutora {
+    background: url(img/Foto-ballet-mari.png) no-repeat center;
+    width: 60vh;
+    height: 60vh;
+    
+}
+
+
+/* conteudo */
+.previa img {
+    width: 30vh;
+}
+
+#negrito {
+    font-weight: 700;
+}
+
+/* Cadastro */
+
+.centro {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 90vh;
+}
+
+.cadastro {
+    background: #F26475;
+    color: #fff;
+    border-radius: 10%;
+    width: 60vh;
+    height: 60vh;
+    font-size: x-large;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.cadastro button {
+    color: #fff;
+    background-color: #F26475;
+    border-bottom: #F5909E;
+    /* border-style: none; */
+}
+
+.cadastro h5, .cadastro h2, .cadastro p {
+    margin: 2px;
+}
