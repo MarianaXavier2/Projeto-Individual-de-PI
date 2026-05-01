@@ -1,8 +1,8 @@
 
 @font-face{
     font-family: 'Glamor';
-    src: url(/fonts/GlamorOTF/Glamor-Regular.otf) format(opentype);
-
+    src: url(../fonts/GlamorOTF/Glamor-Regular.otf) format(opentype);
+    src: url(../Projeto-Individual-de-PI/fonts/GlamorTTF/Glamor-Condensed.ttf) format(truetype);
 }
 
 body {
@@ -32,9 +32,9 @@ https://www.designerd.com.br/fontes-elegantes/ */
 }
 
 .links, a {
-margin: 10px;
+margin: 2rem;
 text-decoration: none;
-font-size: 20px;
+font-size: 1.7rem;
 color: #fff2f2;
 }
 
@@ -44,28 +44,90 @@ color: #fff2f2;
 .apresentacao {
     display: flex;
     justify-content: space-evenly;
-    flex-wrap: wrap;
-}
-.apresentacao-texto {
-    width: 400px;
+    align-items: center;
+    /* flex-wrap: wrap; */
+
+    margin: 5em 10em;
 }
 
-.imgAutora {
-    background: url(img/Foto-ballet-mari.png) no-repeat center;
-    width: 60vh;
-    height: 60vh;
+h1 {
+    margin: 3rem;
+    color: #ff1938;
+    text-shadow: 4px 3px 4px #000000;
+    /* font-weight: 900;     */
+
+}
+
+.imgAutora img {
+    /* background: url(img/Foto-ballet-mari.png) no-repeat center; */
+    /* width: 40vh;
+    height: 40vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center; */
     
+    width: 30rem;
+    border-radius: 3em; 
 }
 
+.apresentacao-texto {
+    width: 40em;
+    height: 25em;
+    padding: 1em 2em 1em 2em;
+    font-size: 18px;
 
-/* conteudo */
-.previa img {
-    width: 30vh;
+    background: #f2647557;
+    border-radius: 3em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #negrito {
     font-weight: 700;
 }
+
+/* conteudo */
+
+.previa {                              
+    display: grid;
+    /* grid-template-columns: 30em 40em; */
+    grid-template-columns: 1fr 1fr;
+    row-gap: 3rem;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-evenly;
+}
+
+.previa img {
+    width: 40em;
+    border-radius: 3rem;
+}
+
+
+.previa .texto h4, .previa .texto p {
+    margin: 0.2em;
+}
+
+.previa .texto {
+    width: 25em;
+    height: 15em;
+    padding: 2em 3em 2em 3em;
+    font-size: 18px;
+
+    background: #f2647557;
+    border-radius: 2em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 0.2rem;
+
+}
+
+
 
 /* Cadastro */
 
