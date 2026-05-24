@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+
+    <link rel="stylesheet" href="./css/estilo.css">
+</head>
+    
+<body><!--  // onload="onloadEsconder()"> -->
+  <!--header inicio-->
+  <div class="header">
+    <div class="container">
+      <h1 class="titulo">Ballet&Contexto</h1>
+      <ul class="navbar">
+        <li>
+          <a href="index.html">Inicial</a>
+        </li>
+        <li>
+          <a href="testes.html">Simulador</a>
+        </li>
+        <li>|</li>
+        <li>
+          <a href="login.html">Login</a>
+        </li>
+        <li class="agora">
+          <a href="#">Cadastro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--header fim-->
+
+
+  <button onclick="iniciarCoppelia()">Iniciar quiz</button>
+
+  <div id="quizCoppelia"></div>
+
+  <p>Qual compositor é creditado pela música do ballet Coppélia, e qual foi a sua contribuição para a música de ballet na época?</p>
+  <select name="questao1" id="questao1">
+    <option value="0">Piotr Ilitch Tchaikovsky, introduziu a dança virtuosa.</option>
+    <option value="0">Léo Delibes, trouxe riqueza melódica e orquestração vibrante.</option>
+    <option value="1"> Arthur Saint-Léon, focou em teatralidade.</option>
+    <option value="0"> Marius Petipa, popularizou o ballet em todo o mundo.</option>
+  </select>
+
+ <!-- Petipa: https://www.google.com/search?q=marius+petipa+obras&sca_esv=ff9f10b283514a9d&biw=1300&bih=615&ei=-AkCauyKMN_Y1sQP8N3O2Qk&oq=petipa+ballet&gs_lp=Egxnd3Mtd2l6LXNlcnAiDXBldGlwYSBiYWxsZXQqAggBMgoQABhHGNYEGLADMgoQABhHGNYEGLADMgoQABhHGNYEGLADMgoQABhHGNYEGLADMgoQABhHGNYEGLADMgoQABhHGNYEGLADMgoQABhHGNYEGLADMgoQABhHGNYEGLADMg4QABjkAhjWBBiwA9gBATIOEAAY5AIY1gQYsAPYAQEyDhAAGOQCGNYEGLAD2AEBMhcQLhjcBhi4BhjaBhjYAhjIAxiwA9gBATIXEC4Y3AYYuAYY2gYY2AIYyAMYsAPYAQEyFxAuGNwGGLgGGNoGGNgCGMgDGLAD2AEBMhcQLhjcBhi4BhjaBhjYAhjIAxiwA9gBAUihFlAAWABwAXgBkAEAmAEAoAEAqgEAuAEDyAEAmAIBoAIemAMAiAYBkAYPugYGCAEQARgJkgcBMaAHALIHALgHAMIHAzQtMcgHGYAIAQ&sclient=gws-wiz-serp-->
+
+  <p>Quem foram os coreógrafos da obra Coppélia, e qual a influência de cada um nas versões apresentadas hoje?</p>
+  <select name="questao2" id="questao2">
+  <option value="0">Léo Delibes (música) e E. T. A. Hoffmann (conto original).</option>
+  <option value="1">Arthur Saint-Léon (coreografia original) e Marius Petipa (remontagens influentes).</option>
+  <option value="0">Giuseppina Bozzacchi (bailarina principal) e Dr. Coppelius (inventor).</option>
+  <option value="0">Swanilda e Franz (personagens principais).</option>
+</select>
+
+  <p>Em que período histórico e em qual cidade Coppélia estreou, e qual era a atmosfera cultural da época?</p>
+  <select name="questao3" id="questao3">
+    <option value="0">Início do século XX, em Londres, durante a Era Vitoriana, com foco em realismo.</option>
+    <option value="0">Meados do século XVIII, em Viena, sob a influência do Iluminismo.</option>
+    <option value="1"> 25 de maio de 1870, na Ópera de Paris, sob forte influência do Romantismo e da Revolução Industrial.</option>
+    <option value="0">Final do século XVII, em Milão, com o auge do Barroco.</option>
+  </select>
+
+  <p>De qual obra literária e de qual autor Coppélia foi inspirada, e como o ballet difere do material de origem?</p>
+  <select name="questao4" id="questao4">
+    <option value="0">"O Lago dos Cisnes" de Tchaikovsky, sendo uma comédia mais sombria.</option>
+    <option value="0"> "Romeu e Julieta" de Shakespeare, com um final mais feliz.</option>
+    <option value="1"> "Der Sandmann" ("O Homem da Areia") de E. T. A. Hoffmann, transformando uma atmosfera sombria em uma comédia leve.</option>
+    <option value="0"> "O Quebra-Nozes" de Hoffmann, com foco em temas natalinos.</option>
+  </select>
+  
+  <p>Qual era a relação de Swanilda e Franz no início do ballet, e o que perturbou a tranquilidade do relacionamento deles?</p>
+  <select name="questao5" id="questao5">
+    <option value="0">Eram irmãos que competiam por atenção; o ciúme de Swanilda por uma nova dançarina.</option>
+    <option value="0"> Eram rivais em uma disputa pela mão de outra pessoa; a chegada de um novo inventor na aldeia.</option>
+    <option value="1">Eram noivos prestes a se casar; o fascínio de Franz pela misteriosa Coppélia, vista na varanda do Dr. Coppelius.</option>
+    <option value="0"> Eram amigos de infância; a partida de Franz para estudar em outra cidade.</option>
+  </select>
+
+  <p>Quem é Coppélia, e qual é a sua verdadeira natureza dentro da história do ballet?</p>
+  <select name="questao6" id="questao6">
+    <option value="0">Uma jovem camponesa que se apaixona por Franz.</option>
+    <option value="0">A filha desaparecida do Dr. Coppelius, que retorna à aldeia.</option>
+    <option value="1">Uma boneca criada pelo Dr. Coppelius, que parece ganhar vida.</option>
+    <option value="0">Uma bruxa que enfeitiça Franz.</option>
+  </select>
+
+  <p>Qual foi o plano do Dr. Coppelius ao encontrar Franz na sua oficina, e o que ele pretendia concretizar?</p>
+  <select name="questao7" id="questao7">
+    <option value="0"> Capturar Franz para roubar seus pertences.</option>
+    <option value="0">Ensinar Franz a construir bonecos mecânicos.</option>
+    <option value="1"> Dar vida à boneca Coppélia, transferindo a alma de Franz para ela.</option>
+    <option value="0">Forçar Franz a se casar com sua sobrinha.</option>
+  </select>
+
+  <p>Como Swanilda descobre a verdadeira identidade de Coppélia, e qual ação ela toma para salvar Franz?</p>
+  <select name="questao8" id="questao8">
+    <option value="">Ela dança de forma elegante e realista, confundindo o inventor.</option>
+    <option value="">Ela veste as roupas de Coppélia e finge ser a boneca viva.</option>
+    <option value=""></option>
+    <option value=""></option>
+  </select>
+
+  <p>Qual acontecimento trágico marcou a estreia de Coppélia em 1870?</p>
+  <select name="questao9" id="questao9">
+    <option value="0"> A morte do compositor Léo Delibes durante a apresentação.</option>
+    <option value="0">Um incêndio na Ópera de Paris.</option>
+    <option value="1">A morte prematura da bailarina principal.</option>
+    <option value="0">O roubo da partitura musical.</option>
+  </select>
+
+  <p>Qual era a característica marcante da atmosfera das artes europeias durante a estreia de Coppélia?</p>
+  <select name="questao10" id="questao10">
+    <option value="0">Um forte interesse pelo realismo e pelo cotidiano, influenciado pelo movimento artistico do Realismo.</option>
+    <option value="1">Uma fascinação por histórias sobrenatural, influenciada pela Revolução Industrial.</option>
+    <option value="0">Uma busca por temas puramente abstratos e musicais.</option>
+    <option value="0">Um foco exclusivo em temas religiosos e históricos.</option>
+  </select>
+
+  <div id="feed"></div>
+  <div id="resultado"></div>
+  <button onclick="enviarPontos()">Enviar</button>
+
+  <div id="mensagem_erro"></div>
+</body>
+</html>
+
+<script>
+
+  let ID_USUARIO = sessionStorage.ID_USUARIO;
+function iniciarCoppelia() {
+    quizCoppelia.innerHTML = `
+    
+    `;
+    
+ };
+ let pontosC = 0;
+function enviarPontos() {
+    let ipt1 = questao1.value;
+    let ipt2 = questao2.value;
+    let ipt3 = questao3.value;
+    let ipt4 = questao4.value;
+    let ipt5 = questao5.value;
+    let ipt6 = questao6.value;
+    let ipt7 = questao7.value;
+    let ipt8 = questao8.value;
+    let ipt9 = questao9.value;
+    let ipt10 = questao10.value;
+
+    if(ipt1 == 1){
+      pontosC++
+    }
+    if(ipt2 == 1){
+      pontosC++
+    }
+    if(ipt3 == 1){
+      pontosC++
+    }
+    if(ipt4 == 1){
+      pontosC++
+    }
+    if(ipt5 == 1){
+      pontosC++
+    }
+    if(ipt6 == 1){
+      pontosC++
+    }
+    if(ipt7 == 1){
+      pontosC++
+    }
+    if(ipt8 == 1){
+      pontosC++
+    }
+    if(ipt9 == 1){
+      pontosC++
+    }
+    if(ipt10 == 1){
+      pontosC++
+    }
+
+    if (pontosC == 10) {
+      resultado.innerHTML = `Parece que você realmente conhece esse ballet! ${pontosC} pontos não é para todos ⭐⭐⭐⭐⭐`
+    } else if (pontosC > 7){
+      resultado.innerHTML = `Parabens!!!  Você fez ${pontosC} pontos👏👏👏`;
+    } else if (pontosC > 5){
+      resultado.innerHTML = `Essa é a zona de risco em. Foram ${pontosC} pontos, mas sei que vocÊ consegue!!`;
+    } else {
+      resultado.innerHTML = `🫣 Foram ${pontosC} pontos. Veja m pouco mais do nosso conteúdo e quanto tiver tempo assista o ballet!! Tenho certeza que na porxima vai ser muito melhor`;
+    }
+    console.log(pontosC)
+
+    fetch(`/KPIs/cadastrarPontos/:${idUsuario}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        pontosServer: pontosC,
+        idTesteServer: 1,
+        idUsuario: idUsuario,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          // cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Você já pode velo na Dashboard!!";
+
+          // setTimeout(() => {
+          //   window.location = "login.html";
+          // }, "2000");
+
+          // limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar cadastrar o resultado.";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+
+         
+
+</script>

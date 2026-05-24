@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dash.css">
+    <script src="../scriptsjs/scripts.js"></script>
+    <title>Ballet & Contexto</title>
+</head>
+
+<body>
+
+    <div class="dash-header">
+        <div class="foto-usuario">foto</div>
+        <h3>É bom vê-la</h3>
+        <div class="links">
+            <a href="../Paginas/home.html">Início</a>
+            <!-- <p>|</p> -->
+            <a href="../Paginas/conteudos.html">Conteúdos</a>
+            <a href="../Paginas/testes.html">Testes</a>
+            <a href="../Paginas/login.html">Login</a>
+            
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
+            </div>
+        </div>
+    </div>
+    <div class="conteudoDash">
+
+        <div class="kpis">
+            <div class="kpi-p1">
+                <div class="kpi1">
+                    <span class="kpi-titulo">Nº de testes feitos</span>
+                    <div id="totalTestes"></div>
+                </div>
+                <div class="kpi2">
+                    <span class="kpi-titulo">Pontução média</span>
+                    <div id="pMedia"></div>
+                </div>
+            </div>
+            <div class="podio">
+                <span class="kpi-titulo">3 maiores pontuações</span>
+                <div id="top3"></div>
+
+            </div>
+        </div>
+
+        <div class="graficos">
+            <canvas id="mediaP-linha"></canvas>
+            <canvas id="mediaT-barra"></canvas>
+        </div>
+
+        <label for="ipt_testes">Selecione um teste:</label>
+        <select name="testes" id="ipt_testes">
+            <option value="historia">Historia do Ballet</option>
+            <option value="lago">Lago dos Cisnes</option>
+            <option value="coppelia">Coppélia</option>
+        </select>
+    </div>
+</body>
+
+<script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    let idUsuario = sessionStorage.ID_USUARIO;
+
+    let proximaAtualizacao;
+
+    window.onload = exibirKPIs();
+
+    async function exibirKPIs() {
+
+         fetch(`/KPIs/contar/:${idUsuario}`)
+        .then(resposta => resposta.json())
+        .then(json => {
+        console.log(json);        //.acho que é esse nome....
+        totalTestes.innerHTML = json.total;
+    })
+         fetch(`/KPIs/top3/:${idUsuario}`)
+        .then(resposta => resposta.json())
+        .then(json => {
+        console.log(json);        
+        top3.innerHTML = json.pontos + json.nome;})
+        
+         fetch(`/KPIs/media/:${idUsuario}`)
+        .then(resposta => resposta.json())
+        .then(json => {
+        console.log(json);      
+        pMedia.innerHTML = json.mediaP;
+    })
+        // imagem.innerHTML = `<img src="${imag.url}"></img>`;
+    }
+
+    function exibirGraficos() {
+        fetch(`/`)
+    }
+
+</script>
+</html>
