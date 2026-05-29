@@ -1,10 +1,13 @@
 var graficoModel = require("../models/graficoModel");
 
 function graficoLinhas(req, res) {
-    let idUsuario = req.params.idUsuario;
-    if(!idUsuario) return res.status(400).send("idUsuario inválido")
+  let idUsuario = req.params.idUsuario;
+  let idTeste = req.params.idTeste;
+  console.log("Entrou")
+  if (!idUsuario) return res.status(400).send("idUsuario inválido")
+  if (!idTeste) return res.status(400).send("idTeste inválido")
 
-    graficoModel.graficoLinhas(idUsuario).then((resultado) => {
+  graficoModel.graficoLinhas(idUsuario, idTeste).then((resultado) => {
     if (resultado.length > 0) {
       res.status(200).json(resultado);
     } else {
@@ -17,6 +20,29 @@ function graficoLinhas(req, res) {
   });
 }
 
-mmodule.exports = {
-    graficoLinhas
+
+function graficoBarras(req, res) {
+  let idUsuario = req.params.idUsuario;
+
+  console.log("Entrou")
+  if (!idUsuario) return res.status(400).send("idUsuario inválido")
+  if (!idTeste) return res.status(400).send("idTeste inválido")
+
+  graficoModel.graficoBarras(idUsuario).then((resultado) => {
+    if (resultado.length > 0) {
+      res.status(200).json(resultado);
+    } else {
+      res.status(204).json([]);
+    }
+  }).catch(function (erro) {
+    console.log(erro);
+    console.log("Houve um erro ao buscar os aquarios: ", erro.sqlMessage);
+    res.status(500).json(erro.sqlMessage);
+  });
+}
+
+
+module.exports = {
+  graficoLinhas,
+  graficoBarras
 }

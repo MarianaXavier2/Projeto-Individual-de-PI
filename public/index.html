@@ -24,11 +24,12 @@
           <a href="#">Inicial</a>
         </li>
         <li>
-          <a href="simulador.html">Simulador</a>
+          <a href="./conteudos/coppelia.html">Conteúdos</a>
         </li>
         <li>|</li>
         <li>
-          <a href="login.html">Login</a>
+          <div id="logado">
+          <a href="login.html">Login</a></div>
         </li>
         <li>
           <a href="cadastro.html">Cadastro</a>
@@ -41,7 +42,7 @@
       <h1>Seja bem vindo/a ao Ballet e contexto</h1>
       <div class="apresentacao">
         <div class="imgAutora">
-          <img src="../public/assets/imgs/Foto-ballet-mari.png" alt="">
+          <img src="./assets/imgs/Foto-ballet-mari.png" alt="">
         </div>
         <div class="apresentacao-texto">
           <p>Olá! Sejam bem-vindos ao meu blog de Ballet! Meu nome é Mariana e eu gosto de ballet desde que me
@@ -66,6 +67,7 @@
       <div class="container">
         <div class="previa">
           <!-- <div class="previa historia"> -->
+          
           <img
             src="https://4.bp.blogspot.com/-j4EP6WSytSM/VRsIg-dzmHI/AAAAAAAAACc/G_v23HeKmgY/s1600/Bankoboev.Ru_edgar_zhermen_iler_dega_baletnyi_klass_opery_na_ulice_pelete.jpg"
             alt="">
@@ -77,7 +79,7 @@
           </div>
           <!-- </div> -->
           <!-- <div class="previa lago"> -->
-          <div class="previa texto">
+          <div class="previa texto" id="lago">
             <h4>Lago dos Cisnes</h4>
             <p>A trama gira em torno da princesa Odette, que é transformada em cisne por um feitiço do mago Von
               Rothbart.
@@ -91,14 +93,15 @@
             alt="">
           <!-- </div> -->
           <!-- <div class="previa coppelia"> -->
+            <!-- <a href="./conteudos/coppelia.html"> -->
           <img
             src="https://theartsdesk.com/sites/default/files/mastimages/Coppelia.%20Francesca%20Hayward%20as%20Swanilda%20and%20Gary%20Avis%20as%20Dr%20Coppelius.%20(c)%20ROH%2C%202019.%20Photographed%20by%20Bill%20Cooper.%20(3).jpg"
             alt="">
-          <div class="previa texto">
+          <div class="previa texto" id="copelia">
             <h4>Coppélia</h4>
             <p>Coppélia é um dos balés cômicos mais famosos e apresentados no mundo. Ele estreou em Paris, em 1870, e conta a história do Dr. Coppélius, um criador de brinquedos, e da jovem Swanilda, que descobre que Coppélia, a misteriosa "donzela" que lia na sacada, é na verdade uma boneca mecânica.
             </p>
-            </div>
+            </div><!--</a>-->
         </div>
       </div>
     </div>
@@ -109,6 +112,14 @@
         <span class="version">v1.0.0</span>
       </div>
     </div>
+        <h5>Tem uma sugestão ou comentario? </h5>
+        <h5>Envie um e-mail para: mariana.xavier@sptech.school</h5>
+
 </body>
 
 </html>
+<script>
+  if (sessionStorage.ID_USUARIO != undefined) {
+    logado.innerHTML = '<a href="dashboard/dash.html">Dashboard</a>';
+  }
+</script>

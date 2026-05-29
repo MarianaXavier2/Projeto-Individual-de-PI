@@ -4,9 +4,16 @@ var router = express.Router();
 
 var graficosController = require("../controllers/graficosController");
 
-router.get("/:empresaId", function (req, res) {
+router.get("/graficoLinhas/:idUsuario/:idTeste", function (req, res) {
+  console.log("rota")
   graficosController.graficoLinhas(req, res);
 });
+
+router.get("/graficoBarras/:idUsuario", function (req, res) {
+  console.log("rota")
+  graficosController.graficoBarras(req, res);
+});
+
 /*
 router.post("/cadastrar", function (req, res) {
   graficosController.cadastrar(req, res);

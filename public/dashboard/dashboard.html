@@ -88,7 +88,7 @@
 
     async function ver() {
 
-         fetch(`/KPIs/contar/:${idUsuario}`)
+         fetch(`/KPIs/contar/${idUsuario}`)
         .then(resposta => resposta.json())
         .then(json => {
         console.log(json);
@@ -273,8 +273,6 @@
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
     function atualizarGrafico(idAquario, dados, myChart) {
-
-
 
         fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {

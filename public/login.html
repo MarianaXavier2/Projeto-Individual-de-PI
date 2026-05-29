@@ -93,7 +93,7 @@
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            mensagem_erro.innerHTML = "Todos os campos em branco";
             finalizarAguardar();
             return false;
         }
@@ -118,23 +118,23 @@
 
             if (resposta.ok) {
                 
-                resposta.text().then(res => {
+                resposta.json().then(res => {
                     console.log(res);
                     console.log(JSON.stringify(res));
                     sessionStorage.EMAIL_USUARIO = res.email;
                     sessionStorage.NOME_USUARIO = res.nome;
                     sessionStorage.ID_USUARIO = res.id;
 
-                    finalizarAguardar();
+                    // finalizarAguardar();
                     setTimeout(function () {
                         window.location = "./dashboard/dash.html";
                     }, 1000); // apenas para exibir o loading
-
+                }).catch(function (erro) {
+                    console.error("Erro ao processar resposta JSON do login:", erro);
+                    finalizarAguardar("Erro ao processar a resposta do servidor.");
                 });
-    
 
             } else {
-
                 console.log("Houve um erro ao tentar realizar o login!");
 
                 resposta.text().then(texto => {

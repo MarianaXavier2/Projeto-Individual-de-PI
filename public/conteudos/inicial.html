@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coppélia</title>
+</head>
+
+<body>
+
+  <div class="header">
+    <div class="container">
+      <h1 class="titulo">AquaTech</h1>
+      <ul class="navbar">
+        <li class="agora">
+          <a href="../index.html">Inicial</a>
+        </li>
+        <li>
+          <a href="../testes.html">Testes</a>
+        </li>
+        <li>|</li>
+        <li>
+          <a href="../login.html">Login</a>
+        </li>
+        <li>
+          <a href="../cadastro.html">Cadastro</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="social">
+    <div class="container">
+      <div class="previa">
+        <!-- <div class="previa historia"> -->
+
+        <img
+          src="https://4.bp.blogspot.com/-j4EP6WSytSM/VRsIg-dzmHI/AAAAAAAAACc/G_v23HeKmgY/s1600/Bankoboev.Ru_edgar_zhermen_iler_dega_baletnyi_klass_opery_na_ulice_pelete.jpg"
+          alt="">
+        <div class="previa texto">
+          <h4>História do ballet</h4>
+          <p>texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto
+            texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto
+            texto texto texto texto texto texto texto texto </p>
+          <button onclick="verConteudo(3)">Ver conteúdo</button>
+        </div>
+        <!-- </div> -->
+        <!-- <div class="previa lago"> -->
+        <div class="previa texto" id="lago">
+          <h4>Lago dos Cisnes</h4>
+          <p>A trama gira em torno da princesa Odette, que é transformada em cisne por um feitiço do mago Von
+            Rothbart.
+            Durante o dia, Odette vive como um cisne, mas à noite, ela recupera sua forma humana.
+            Para quebrar o feitiço, ela precisa que um príncipe, Siegfried, declare seu amor e fidelidade a ela.
+            O enredo se complica quando Siegfried é enganado por Odile, o cisne negro e filha de Von Rothbart, que se
+            disfarça como Odette. </p>
+          </p>
+          <button onclick="verConteudo(2)">Ver conteúdo</button>
+        </div>
+        <img src="https://th.bing.com/th/id/OIP.JxjXytjMaRyrjn2NK7oK0QHaEw?w=288&h=185&c=7&r=0&o=7&pid=1.7&rm=3" alt="">
+        <!-- </div> -->
+        <!-- <div class="previa coppelia"> -->
+        <!-- <a href="./conteudos/coppelia.html"> -->
+        <img
+          src="https://theartsdesk.com/sites/default/files/mastimages/Coppelia.%20Francesca%20Hayward%20as%20Swanilda%20and%20Gary%20Avis%20as%20Dr%20Coppelius.%20(c)%20ROH%2C%202019.%20Photographed%20by%20Bill%20Cooper.%20(3).jpg"
+          alt="">
+        <div class="previa texto" id="copelia">
+          <h4>Coppélia</h4>
+          <p>Coppélia é um dos balés cômicos mais famosos e apresentados no mundo. Ele estreou em Paris, em 1870, e
+            conta a história do Dr. Coppélius, um criador de brinquedos, e da jovem Swanilda, que descobre que Coppélia,
+            a misteriosa "donzela" que lia na sacada, é na verdade uma boneca mecânica.
+          </p>
+          <button onclick="verConteudo(1)">Ver conteúdo</button>
+        </div><!--</a>-->
+      </div>
+    </div>
+  </div>
+
+
+  <div class="footer">
+    <div class="container">
+      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
+      <span class="version">v1.0.0</span>
+    </div>
+  </div>
+  <h5>Tem uma sugestão ou comentario? </h5>
+  <h5>Envie um e-mail para: mariana.xavier@sptech.school</h5>
+
+</body>
+
+</html>
+
+<script>
+  function verConteudo(id) {
+    sessionStorage.setItem('teste', id)
+    setTimeout(function () {
+      window.location = "./conteudos.html";
+    }, 1000);
+  }
+</script>
