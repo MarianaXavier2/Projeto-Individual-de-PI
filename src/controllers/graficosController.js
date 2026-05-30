@@ -15,7 +15,7 @@ function graficoLinhas(req, res) {
     }
   }).catch(function (erro) {
     console.log(erro);
-    console.log("Houve um erro ao buscar os aquarios: ", erro.sqlMessage);
+    console.log("Houve um erro ao buscar dados grafico linha: ", erro.sqlMessage);
     res.status(500).json(erro.sqlMessage);
   });
 }
@@ -26,7 +26,6 @@ function graficoBarras(req, res) {
 
   console.log("Entrou")
   if (!idUsuario) return res.status(400).send("idUsuario inválido")
-  if (!idTeste) return res.status(400).send("idTeste inválido")
 
   graficoModel.graficoBarras(idUsuario).then((resultado) => {
     if (resultado.length > 0) {
@@ -36,7 +35,7 @@ function graficoBarras(req, res) {
     }
   }).catch(function (erro) {
     console.log(erro);
-    console.log("Houve um erro ao buscar os aquarios: ", erro.sqlMessage);
+    console.log("Houve um erro ao buscar dados grafico barras: ", erro.sqlMessage);
     res.status(500).json(erro.sqlMessage);
   });
 }

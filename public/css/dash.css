@@ -6,7 +6,7 @@ body {
 }
 
 
- .dash-header{
+.dash-header {
     font-family: 'Glamor', sans-serif;
     /* font-size: 20px; */
     background-color: #F26475;
@@ -23,24 +23,25 @@ body {
     display: flex;
     flex-direction: column;
     /* justify-content: space-around;*/
-    align-items: center; 
+    align-items: center;
 }
 
-.links, a {
-margin: 2rem 0.5rem 2rem 0.5rem;
-text-decoration: none;
-font-size: 1.3rem;
-color: #fff2f2;
+.links,
+a {
+    margin: 2rem 0.5rem 2rem 0.5rem;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: #fff2f2;
 }
 
-    /* conetudo */
+/* conetudo */
 
 .conteudoDash {
     width: 75%;
-  position: relative;
-  top: 0;
-  left: 22%;
-    background: #6472f2;
+    position: relative;
+    top: 0;
+    left: 22%;
+    /* background: #6472f2; */
 
 }
 
@@ -56,3 +57,4 @@ color: #fff2f2;
     flex-direction: column;
     background: #F26475;
 }
+

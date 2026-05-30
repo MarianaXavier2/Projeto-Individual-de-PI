@@ -49,8 +49,8 @@
 
 
         <div class="graficos">
-            <canvas id="mediaP-linha"></canvas>
-            <canvas id="mediaT-barra"></canvas>
+            <div id="graficoLinha"></div>
+            <div id="graficoBarras"></div>
         </div>
 
         <label for="ipt_testes">Selecione um teste:</label>
@@ -59,6 +59,7 @@
             <option value="2">Lago dos Cisnes</option>
             <option value="3">Coppélia</option>
         </select>
+        <button onclick="carregar()">Carregar grafico</button>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -79,10 +80,8 @@
             console.error('ID_USUARIO não encontrado na sessão. Faça login novamente.');
             return;
         }
-
         obterDadosKPIs();
-        obterDadosGrafico();
-
+        obterDadosGrafico(1);
     }
 
     function obterDadosKPIs() {
@@ -176,12 +175,19 @@
 
     // Graficos:
 
-    function obterDadosGrafico() {
+    function carregar() {
         let idTeste = ipt_testes.value;
+        obterDadosGrafico(idTeste)
+    }
+    let ChartLinha = null;
+    function obterDadosGrafico(idTeste) {
         console.log(idUsuario);
         // if (proximaAtualizacao != undefined) {
         //     clearTimeout(proximaAtualizacao);
         // }
+        // if (ChartLinha) {
+        // ChartLinha.destroy();
+        // };
 
         fetch(`/grafico/graficoLinhas/${idUsuario}/${idTeste}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
@@ -202,13 +208,13 @@
 
         // grafico barras media por teste
 
-        fetch(`/grafico/graficoBarra/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/grafico/graficoBarras/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
 
-                    plotarGraficoBarra(resposta, idUsuario);
+                    plotarGraficoBarras(resposta, idUsuario);
 
                 });
             } else {
@@ -223,7 +229,9 @@
 
     function plotarGraficoLinha(resposta, idUsuario) {
         console.log('iniciando plotagem do gráfico...');
-
+        graficoLinha.innerHTML = '';
+        graficoLinha.innerHTML = '<canvas id="mediaP_linha"></canvas>';
+        // destruindo um chat existente
         // Criando estrutura para plotar gráfico - labels
         let labels = [];
 
@@ -236,7 +244,6 @@
                 fill: false,
                 backgraudColor: 'rgb(75, 192, 192)',
                 barPercentage: 0.4,
-
             }]
         };
 
@@ -248,8 +255,8 @@
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
             console.log("ta na parte de inserir ", registro, resposta[i])
-            labels.push(registro.pontos);
-            dados.datasets[0].data.push(registro.pontos);
+            labels.push(registro.nome);
+            dados.datasets[0].data.push(registro.media);
             // dados.datasets[1].data.push(registro.temperatura);
         }
 
@@ -266,10 +273,9 @@
             type: 'line',
             data: dados,
         };
-
         // Adicionando gráfico criado em div na tela
-        let myChart = new Chart(
-            document.getElementById(`mediaP-linha`),
+        let ChartLinha = new Chart(
+            document.getElementById(`mediaP_linha`),
             config
         );
 
@@ -278,19 +284,21 @@
 
     function plotarGraficoBarras(resposta, idUsuario) {
         console.log('iniciando plotagem do gráfico...');
-
+        graficoBarras.innerHTML = '<canvas id="mediaT_barra"></canvas>';
         // Criando estrutura para plotar gráfico - labels
-        let labels = [];
+        let labelsBar = [];
 
         // Criando estrutura para plotar gráfico - dados
         let dados = {
-            labels: labels,
+            labels: labelsBar,
             datasets: [{
-                label: 'Pontos',
+                label: 'Media',
                 data: [],
-                fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.5
+                // fill: false,
+                backgraudColor: 'rgb(75, 0, 40)',
+                houverBorder: 6,
+                barPercentage: 0.4
+                // tension: 0.5
             }]
         };
 
@@ -301,16 +309,17 @@
         // Inserindo valores recebidos em estrutura para plotar o gráfico
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-            console.log("ta na parte de inserir ", registro, resposta[i])
-            labels.push(registro.nome);
-            dados.datasets[0].data.push(registro.pontos);
+            console.log("ta na parte de inserir ", registro)
+            labelsBar.push(registro.nome);
+            console.log(registro.media);
+            dados.datasets[0].data.push(registro.media);
             // dados.datasets[1].data.push(registro.temperatura);
         }
 
         console.log('----------------------------------------------')
         console.log('O gráfico será plotado com os respectivos valores:')
         console.log('Labels:')
-        console.log(labels)
+        console.log(labelsBar)
         console.log('Dados:')
         console.log(dados.datasets)
         console.log('----------------------------------------------')
@@ -322,8 +331,8 @@
         };
 
         // Adicionando gráfico criado em div na tela
-        let myChart = new Chart(
-            document.getElementById(`mediaT-barra`),
+        let ChartBarras = new Chart(
+            document.getElementById(`mediaT_barra`),
             config
         );
 
