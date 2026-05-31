@@ -12,13 +12,12 @@
 <body>
 
     <div class="dash-header">
-        <!-- <div class="foto-usuario">foto</div> -->
-        <h3>É bom vê-la <span id="n_usuario"></span>!</h3>
+      <img id="logo" src="./assets/imgs/logo.png" alt="">        <h3>É bom vê-la <span id="n_usuario"></span>!</h3>
         <div class="links">
             <a href="../index.html">Início</a>
             <!-- <p>|</p> -->
             <a href="../conteudos/inicial.html">Conteúdos</a>
-            <a href="../testes.html">Testes</a>
+            <a href="../Testes/inicialTestes.html">Testes</a>
             <a href="../login.html">Login</a>
 
             <div class="btn-logout" onclick="limparSessao()">
@@ -39,20 +38,21 @@
                     <div id="pMedia"></div>
                 </div>
             </div>
+            <div class="podio">
+                <span class="kpi-titulo">3 maiores pontuações</span>
+                <div class="conteudoPodio">
+                    <div id="top3_pontos"></div>
+                    <div id="divisao">
+                        <div>|</div>
+                        <div>|</div>
+                        <div>|</div>
+                    </div>
+                    <div id="top3_nome"></div>
+                </div>
+            </div>
         </div>
-        <div class="podio">
-            <span class="kpi-titulo">3 maiores pontuações</span>
-            <div id="top3_pontos"></div>
-            <div id="top3_nome"></div>
-
-        </div>
-
 
         <div class="graficos">
-            <div id="graficoLinha"></div>
-            <div id="graficoBarras"></div>
-        </div>
-
         <label for="ipt_testes">Selecione um teste:</label>
         <select name="testes" id="ipt_testes">
             <option value="1">Historia do Ballet</option>
@@ -60,7 +60,12 @@
             <option value="3">Coppélia</option>
         </select>
         <button onclick="carregar()">Carregar grafico</button>
+        <h3>Sua evolução no teste <span id="nTeste"></span>:</h3>
     </div>
+            <div id="graficoLinha"></div>
+            <h3>Media de pontos nos testes feitos:</h3>
+            <div id="graficoBarras"></div>
+        </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
@@ -254,10 +259,10 @@
         // Inserindo valores recebidos em estrutura para plotar o gráfico
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-            console.log("ta na parte de inserir ", registro, resposta[i])
+            console.log("ta na parte de inserir Grfico linha ", registro, resposta[i])
             labels.push(registro.nome);
             dados.datasets[0].data.push(registro.media);
-            // dados.datasets[1].data.push(registro.temperatura);
+            nTeste.innerHTML = registro.nome
         }
 
         console.log('----------------------------------------------')

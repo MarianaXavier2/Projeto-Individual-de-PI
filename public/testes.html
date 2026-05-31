@@ -4,40 +4,174 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teste</title>
+  <title>Coppélia</title>
+  <link rel="stylesheet" href="../css/estilo.css">
 
-  <link rel="stylesheet" href="./css/estilo.css">
 </head>
 
-<body><!--  // onload="onloadEsconder()"> -->
-  <!--header inicio-->
+<body onload="mostrar(sessionStorage.TESTE)">
+
   <div class="header">
     <div class="container">
-      <h1 class="titulo">Ballet&Contexto</h1>
+      <img id="logo" src="./assets/imgs/logo.png" alt="">
+      <!-- <h1 class="titulo">AquaTech</h1> -->
       <ul class="navbar">
         <li>
-          <a href="index.html">Inicial</a>
+          <a href="./index.html">Inicial</a>
         </li>
-        <li>
-          <a href="./dashboard/dash.html">Dashboard</a>
+        <li class="agora">
+          <a>Testes</a>
         </li>
         <li>|</li>
         <li>
-          <a href="login.html">Login</a>
+          <div id="logado">
+          <a href="./login.html">Login</a>
+        </div>
         </li>
-        <li class="agora">
-          <a href="#">Cadastro</a>
+        <li>
+          <a href="./cadastro.html">Cadastro</a>
         </li>
       </ul>
     </div>
   </div>
-  <!--header fim-->
+
+  <div class="socialTeC">
+    <div id="center">
+      <div class="conteudo" id="quiz"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2026</h4>
+      <span class="version">v1.0.0</span>
+    </div>
+  </div>
+  <div id="sugestoes">
+  <h5>Tem uma sugestão ou comentario? </h5>
+  <h5>Envie um e-mail para: <span id="negrito"> mariana.xavier@sptech.school</span></h5>
+</div>
+
+</body>
+
+</html>
+
+<script>
+  let idUsuario = sessionStorage.ID_USUARIO;
+
+  if (idUsuario != undefined) {
+    logado.innerHTML = '<a href="dashboard/dash.html">Dashboard</a>';
+  }
+
+  function enviarPontos() {
+    let pontosC = 0;
+    let idTeste = sessionStorage.TESTE;
+
+    let ipt1 = questao1.value;
+    let ipt2 = questao2.value;
+    let ipt3 = questao3.value;
+    let ipt4 = questao4.value;
+    let ipt5 = questao5.value;
+    let ipt6 = questao6.value;
+    let ipt7 = questao7.value;
+    let ipt8 = questao8.value;
+    let ipt9 = questao9.value;
+    let ipt10 = questao10.value;
+
+    if (ipt1 == 1) {
+      pontosC++
+    };
+    if (ipt2 == 1) {
+      pontosC++
+    };
+    if (ipt3 == 1) {
+      pontosC++
+    };
+    if (ipt4 == 1) {
+      pontosC++
+    };
+    if (ipt5 == 1) {
+      pontosC++
+    };
+    if (ipt6 == 1) {
+      pontosC++
+    };
+    if (ipt7 == 1) {
+      pontosC++
+    };
+    if (ipt8 == 1) {
+      pontosC++
+    };
+    if (ipt9 == 1) {
+      pontosC++
+    };
+    if (ipt10 == 1) {
+      pontosC++
+    };
+
+    if (pontosC == 10) {
+      resultado.innerHTML = `Parece que você realmente conhece esse ballet! ${pontosC} pontos não é para todos ⭐⭐⭐⭐⭐`
+    } else if (pontosC > 6) {
+      resultado.innerHTML = `Parabens!!!  Você fez ${pontosC} pontos👏👏👏`;
+    } else if (pontosC > 5) {
+      resultado.innerHTML = `Essa é a zona de risco em! Foram ${pontosC} pontos, mas sei que você consegue!!`;
+    } else {
+      resultado.innerHTML = `Foram ${pontosC} pontos. Veja um pouco mais do nosso conteúdo e quanto tiver tempo, assista o ballet!! Tenho certeza que na proxima vai ser muito melhor`;
+    }
+    console.log(pontosC)
+
+    cadastrarOsPontos(pontosC, idTeste);
+  }
+
+  function cadastrarOsPontos(pontosC, idTeste) {
+    console.log("No featch " + idUsuario, pontosC, idTeste);
+
+    fetch(`/KPIs/cadastrarPontos`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // Quando você usa o metodo post é melhor enviar pelo body e usa req.body.--Server;
+      body: JSON.stringify({
+        idUsuarioServer: idUsuario,
+        idTesteServer: idTeste,
+        pontosServer: pontosC
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          // cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Você já pode velo na Dashboard!!";
 
 
-  <button onclick="iniciarCoppelia()">Iniciar quiz</button>
+          // limparFormulario();
+          // finalizarAguardar();
+        } else {
+          console.log(idUsuario);
+          console.log("status:", resposta.status);
+          console.log("ok:", resposta.ok);
+          throw "Houve um erro ao tentar cadastrar pontos!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO aqui: ${resposta}`);
+        // finalizarAguardar();
+      });
 
-  <div id="quizCoppelia"></div>
+    return false;
+  }
 
+  // Textos dos testes
+
+  function mostrar(id) {
+    if (id == 3) {
+      quiz.innerHTML = `
+      <h2>Coppelia</h2>
+      <div class="conteudoIf">
   <p>Qual compositor é creditado pela música do ballet Coppélia, e qual foi a sua contribuição para a música de ballet
     na época?</p>
   <select name="questao1" id="questao1">
@@ -126,135 +260,159 @@
     <option value="0">Uma busca por temas puramente abstratos e musicais.</option>
     <option value="0">Um foco exclusivo em temas religiosos e históricos.</option>
   </select>
-
-  <div id="feed"></div>
-  <div id="resultado"></div>
-  <button onclick="enviarPontos()">Enviar</button>
-
+  <button class="botaoTeste" onclick="enviarPontos()">Enviar</button>
+</div>
   <div id="mensagem_erro"></div>
-</body>
+      `;
+    } else if (id == 1){
+      quiz.innerHTML = `
+      
+<p> Quais temas se tornaram centrais no Ballet Romântico, contrastando com os temas mitológicos do Ballet da Corte?</p>
+  <select name="questao1" id="questao1">
 
-</html>
 
-<script>
+    <option value="1"> Amor e fantasia, espíritos e criaturas sobrenaturais </option>
 
-  let idUsuario = sessionStorage.ID_USUARIO;
-  let idTeste = 0;
+    <option value="0"> Mitologia grega e romana </option>
 
-  function iniciarCoppelia() {
-    quizCoppelia.innerHTML = `
-    
-    `;
+    <option value="0"> A grandiosidade da monarquia </option>
 
-  };
-  function enviarPontos() {
-    let pontosC = 0;
-    idTeste = 2;
+    <option value="0"> A vida cotidiana da nobreza </option>
 
-    let ipt1 = questao1.value;
-    let ipt2 = questao2.value;
-    let ipt3 = questao3.value;
-    let ipt4 = questao4.value;
-    let ipt5 = questao5.value;
-    let ipt6 = questao6.value;
-    let ipt7 = questao7.value;
-    let ipt8 = questao8.value;
-    let ipt9 = questao9.value;
-    let ipt10 = questao10.value;
+</select>
+<p>
+ Qual obra é considerada a obra-prima romântica e o que a caracteriza, juntamente com o chamado Ballet Blanc?
+</p>
+  <select name="questao" id="questao2">
 
-    if (ipt1 == 1) {
-      pontosC++
-    };
-    if (ipt2 == 1) {
-      pontosC++
-    };
-    if (ipt3 == 1) {
-      pontosC++
-    };
-    if (ipt4 == 1) {
-      pontosC++
-    };
-    if (ipt5 == 1) {
-      pontosC++
-    };
-    if (ipt6 == 1) {
-      pontosC++
-    };
-    if (ipt7 == 1) {
-      pontosC++
-    };
-    if (ipt8 == 1) {
-      pontosC++
-    };
-    if (ipt9 == 1) {
-      pontosC++
-    };
-    if (ipt10 == 1) {
-      pontosC++
-    };
 
-    if (pontosC == 10) {
-      resultado.innerHTML = `Parece que você realmente conhece esse ballet! ${pontosC} pontos não é para todos ⭐⭐⭐⭐⭐`
-    } else if (pontosC > 6) {
-      resultado.innerHTML = `Parabens!!!  Você fez ${pontosC} pontos👏👏👏`;
-    } else if (pontosC > 5) {
-      resultado.innerHTML = `Essa é a zona de risco em! Foram ${pontosC} pontos, mas sei que você consegue!!`;
-    } else {
-      resultado.innerHTML = `Foram ${pontosC} pontos. Veja um pouco mais do nosso conteúdo e quanto tiver tempo, assista o ballet!! Tenho certeza que na proxima vai ser muito melhor`;
+    <option value="0"> La Sylphide; Sapatilhas de ponta e atmosfera etérea </option>
+
+    <option value="0"> Ballet de la Nuit; Participação do Rei Sol </option>
+
+    <option value="1"> Giselle; Tutus brancos, atmosfera sobrenatural e leveza </option>
+
+    <option value="0"> Ballet Comique de la Reine; Integração de coreografia, música e narrativa </option>
+
+</select>
+<p>
+ Qual bailarina ajudou a popularizar o uso das sapatilhas de ponta no período romântico, reforçando a estética etérea?
+</p>
+  <select name="questao" id="questao3">
+
+    <option value="0"> Catarina de Médici </option>
+
+    <option value="1"> Marie Taglioni </option>
+
+    <option value="0"> A bailarina de Giselle </option>
+
+    <option value="0"> Nenhuma das anteriores </option>
+
+</select>
+
+<p>
+ Quais países, após o enfraquecimento do ballet na França no século XIX, passaram a desenvolver suas próprias escolas e métodos, e cite um exemplo de método?
+ </p>
+  <select name="questao" id="questao4">
+
+
+    <option value="0"> Itália; Método Cecchetti </option>
+
+    <option value="0"> Rússia; Método Vaganova </option>
+
+    <option value="0"> Dinamarca; Método Bournonville </option>
+
+    <option value="1"> Todos os anteriores </option>
+
+</select>
+<p>
+ Qual companhia revolucionou o ballet no século XX ao unir dança, música, moda e artes visuais?
+ </p>
+  <select name="questao" id="questao5">
+
+
+    <option value="0"> Ópera de Paris </option>
+
+    <option value="1"> Ballets Russes, de Sergei Diaghilev </option>
+
+    <option value="0"> Escola da Ópera de Paris </option>
+
+    <option value="0"> Academia Royale de Danse </option>
+
+</select>
+<p>
+ Quais são alguns dos princípios fundamentais do ballet que permanecem essenciais até hoje?
+</p>
+  <select name="questao" id="questao6">
+
+
+    <option value="0"> Apenas a disciplina e a postura vertical </option>
+
+    <option value="1"> Leveza, harmonia e rotação externa das pernas (en dehors) </option>
+
+    <option value="0"> Técnica rígida e figurinos pesados </option>
+
+    <option value="0"> Ênfase na nobreza e movimentos mecânicos </option>
+
+</select>
+<p>
+ Quem foi o rei francês conhecido como "Rei Sol" e qual sua importância para o desenvolvimento do ballet?
+</p>
+  <select name="questao" id="questao7">
+
+
+    <option value="0"> Henrique II; Levou artistas italianos para a França </option>
+
+    <option value="1"> Luís XIV; Apaixonado pela dança, a utilizou como instrumento político e profissionalizou a arte </option>
+
+    <option value="0"> Sergei Diaghilev; Revolucionou o ballet no século XX </option>
+
+    <option value="0"> Jean-Georges Noverre; Criticava espetáculos mecânicos </option>
+</select>
+
+<p>
+ O que a criação da Académie Royale de Danse por Luís XIV em 1661 representou para o ballet?
+</p>
+  <select name="questao" id="questao8">
+
+
+    <option value="0"> O fim do ballet como passatempo da nobreza </option>
+
+
+    <option value="0"> A origem da atual Ópera de Paris </option>
+
+    <option value="1"> A primeira instituição oficial dedicada ao ensino da dança </option>
+    <option value="0"> A consolidação do francês como idioma oficial do ballet </option>
+</select>
+<p>
+ Qual a principal crítica de Jean-Georges Noverre aos espetáculos de ballet de sua época e qual conceito ele propôs?
+</p>
+  <select name="questao9" id="questao9">
+
+
+    <option value="0"> Criticava a falta de técnica rigorosa e propôs o Ballet Blanc </option>
+
+    <option value="0"> Criticava a participação das mulheres no palco e propôs a dança masculina </option>
+
+    <option value="0"> Criticava a origem italiana do ballet e propôs a dança francesa </option>
+    <option value="1"> Criticava os espetáculos excessivamente mecânicos e propôs o Ballet d’Action </option>
+
+</select>
+
+<p>
+ O que as sapatilhas de ponta ajudaram a criar na estética do ballet romântico e na evolução técnica?
+</p>
+  <select name="questao" id="questao10">
+
+    <option value="1"> A ilusão de que as bailarinas flutuavam no palco, permitindo saltos mais complexos e equilíbrio evoluído </option>
+
+    <option value="0"> Uma sensação de peso e a necessidade de movimentos mais robustos </option>
+
+    <option value="0"> A valorização exclusiva dos figurinos pesados </option>
+
+    <option value="0"> A diminuição da importância da expressão facial </option>
+</select>
+      `;
     }
-    console.log(pontosC)
-
-    cadastrarOsPontos(pontosC, idTeste);
-  }
-
-  function cadastrarOsPontos(pontosC, idTeste) {
-    console.log("No featch "+ idUsuario, pontosC, idTeste);
-
-    fetch(`/KPIs/cadastrarPontos`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    // Quando você usa o metodo post é melhor enviar pelo body e usa req.body.--Server;
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        // nomeServer: nomeVar,
-        // emailServer: emailVar,
-        // senhaServer: senhaVar,
-        //idEmpresaVincularServer: idEmpresaVincular
-        idUsuarioServer: idUsuario,
-        idTesteServer: idTeste,
-        pontosServer: pontosC
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-          // cardErro.style.display = "block";
-
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Você já pode velo na Dashboard!!";
-
-          // setTimeout(() => {
-          //   window.location = "login.html";
-          // }, "2000");
-
-          // limparFormulario();
-          // finalizarAguardar();
-        } else {
-          console.log(idUsuario);
-          console.log("status:", resposta.status);
-          console.log("ok:", resposta.ok);
-          throw "Houve um erro ao tentar cadastrar pontos!";
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO aqui: ${resposta}`);
-        // finalizarAguardar();
-      });
-
-    return false;
   }
 </script>

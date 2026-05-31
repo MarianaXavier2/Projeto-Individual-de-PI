@@ -10,7 +10,7 @@ body {
 }
 
 :root {
-  --tamanho-header: 80px;
+  --tamanho-header: 100px;
   --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
@@ -27,7 +27,11 @@ body {
   height: var(--tamanho-header);
   /* border-bottom: 3px solid #8232cd98; */
   background-color: #ffa6b0;
-  
+
+}
+#logo {
+  width: 93px;
+  min-height: 120px;
 }
 
 .header .container {
@@ -70,7 +74,6 @@ body {
   height: var(--tamanho-banner);
   /* background-image: url('../assets/imgs/bg-jelly-fish-para-home.png'); */
   background-size: cover;
-  /* background: linear-gradient(#ff8795,#ffd7d7); */
 }
 
 .apresentacao {
@@ -175,7 +178,7 @@ h1 {
 .social {
   /* background-color: #e5e5e5; */
   /* display: flex; */
-  background: linear-gradient(#ff8795,#ffd7d7);
+  background: linear-gradient(#ff8795, #ffd7d7);
 }
 
 .social .container {
@@ -210,8 +213,8 @@ h1 {
   height: 100px;
   color: #fff;
   display: flex;
-  justify-content: end;
   font-size: 15px;
+  max-height: 100px;
 }
 
 .footer .container {
@@ -221,6 +224,14 @@ h1 {
 
 .footer .container .version {
   font-size: 12px;
+}
+
+#sugestoes {
+  max-height: 50px;
+  margin-left: 50px;
+}
+#sugestoes h5 {
+  margin: 0px;
 }
 
 /* LOGIN */
@@ -465,5 +476,60 @@ input {
 
 
 .pontuacaoEJogo {
-    height: 800px;
+  height: 800px;
+}
+
+#center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.conteudo {
+  width: 100%;
+  padding: 20px;
+  margin: 20px 0px 20px 0px;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* max-width: 150rem; */
+}
+
+.socialTeC {
+  background: linear-gradient(#ff8795, #ffd7d7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 62rem;
+}
+
+.imgAutora {
+  margin: 40px;
+}
+.apresentacao-texto {
+  margin: 10px;
+}
+#cont {
+  margin-left: 100px;
+  color: #ffeded;
+  font-size: x-large;
+}
+/*Teste*/
+
+#quiz {
+  background: #fae3e3e8;
+  border-radius: 25px;
+}
+
+.conteudoIf {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.botaoTeste{
+  margin-top: 20px;
 }

@@ -5,23 +5,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coppélia</title>
+  <link rel="stylesheet" href="../css/estilo.css">
+
 </head>
 
-<body onload="mostrar(sessionStorage.teste)">
+<body onload="mostrar(sessionStorage.CONTEUDO)">
 
   <div class="header">
     <div class="container">
-      <h1 class="titulo">AquaTech</h1>
-      <ul class="navbar">
-        <li class="agora">
+      <img id="logo" src="./assets/imgs/logo.png" alt="">      <ul class="navbar">
+        <li>
           <a href="../index.html">Inicial</a>
         </li>
         <li>
-          <a href="../testes.html">Testes</a>
+          <a href="../Testes/inicialTestes.html">Testes</a>
         </li>
         <li>|</li>
         <li>
+          <div id="logado">
           <a href="../login.html">Login</a>
+        </div>
         </li>
         <li>
           <a href="../cadastro.html">Cadastro</a>
@@ -29,10 +32,11 @@
       </ul>
     </div>
   </div>
-
-
-  <div id="conteudo"></div>
-
+<div class="social">
+<div id="center">
+  <div class="conteudo" id="conteudo"></div>
+</div>
+</div>
   <div class="footer">
     <div class="container">
       <h4>Feito com amor por aluno &hearts; SPTech &copy; 2026</h4>
@@ -47,34 +51,47 @@
 </html>
 
 <script>
-    function mostrar(id) {
-        if (id == 1) {
-        conteudo.innerHTML = `<h1>Coppélia </h1>
-<h3>Contexto histórico </h3>
+  if (sessionStorage.ID_USUARIO != undefined) {
+    logado.innerHTML = '<a href="../dashboard/dash.html">Dashboard</a>';
+  }
+  function mostrar(id) {
+    if (id == 1) {
+      conteudo.innerHTML = `
+      <h1>Coppélia </h1>
+<h2>Contexto histórico </h2>
 <p>O ballet Coppélia estreou em 25 de maio de 1870, na Ópera de Paris, durante um período em que o romantismo ainda influenciava fortemente as artes europeias. O público da época era fascinado por histórias sobrenaturais, autômatos e invenções mecânicas. A Revolução Industrial transformava cidades e imaginários ao mesmo tempo: máquinas começavam a parecer quase humanas, e isso alimentava tanto encanto quanto estranhamento.
-A obra foi inspirada no conto Der Sandmann (“O Homem da Areia”), do escritor alemão E. T. A. Hoffmann. No conto original, a atmosfera é sombria e psicológica. Já o ballet transformou essa ideia em uma comédia leve e brilhante, cheia de humor e dança virtuosa.
+  </p>
+<p>
+  A obra foi inspirada no conto Der Sandmann (“O Homem da Areia”), do escritor alemão E. T. A. Hoffmann. No conto original, a atmosfera é sombria e psicológica. Já o ballet transformou essa ideia em uma comédia leve e brilhante, cheia de humor e dança virtuosa.
+</p>
+<p>
 A estreia também ficou marcada por um acontecimento triste: poucos meses depois, a bailarina principal da produção original, Giuseppina Bozzacchi, morreu muito jovem durante uma epidemia de varíola em Paris. Ela tinha apenas 17 anos.
 </p>
 
-Os criadores da obra
-O compositor
+<h2>Os criadores da obra</h2>
+<h3>O compositor</h3>
 <p>Léo Delibes foi o responsável pela música de Coppélia. Antes dele, muitas músicas de ballet funcionavam apenas como acompanhamento para a dança. Delibes mudou isso. Sua composição trouxe riqueza melódica e uma orquestração vibrante, quase cinematográfica antes mesmo do cinema existir.
 Muitos historiadores dizem que compositores posteriores, como Piotr Ilitch Tchaikovsky, admiravam profundamente o trabalho de Delibes.
 </p>
-Os coreógrafos
+<h3>Os coreógrafos</h3>
 <p>A coreografia original foi criada por Arthur Saint-Léon, um importante mestre de ballet do século XIX. Ele era conhecido por unir técnica refinada e teatralidade.
+  </p>
+  <p>
 Anos depois, o ballet ganhou remontagens famosas feitas por Marius Petipa, um dos maiores nomes da dança clássica. Muitas versões apresentadas hoje carregam influências de Petipa, especialmente na estrutura coreográfica e nos grandes momentos de virtuosismo.
+</p>
+<p>
 Ao longo do tempo, companhias do mundo inteiro criaram adaptações próprias, mantendo viva a essência divertida da obra.
 </p>
 
 <h3>A história do ballet de repertório Coppélia</h3>
 <p>Ambientado em uma pequena aldeia da Europa Central, Coppélia apresenta uma história leve, divertida e cheia de mal-entendidos, marcada por humor, fantasia e um toque de mistério.
-    </p>
+</p>
 <p>
 A trama começa com Swanilda e Franz, um jovem casal prestes a se casar. Swanilda é inteligente, determinada e observadora, enquanto Franz é sonhador, impulsivo e facilmente distraído por novidades. Embora os dois estejam noivos, a tranquilidade do relacionamento é abalada por uma figura misteriosa que desperta a curiosidade de toda a vila.
 </p>
 <p>
 Todos os dias, sentada imóvel na varanda da casa do velho inventor Dr. Coppelius, aparece uma jovem bela e silenciosa chamada Coppélia. Ela permanece lendo, olhando ao longe ou simplesmente parada, sem interagir com ninguém. Sua beleza chama a atenção dos moradores, mas é Franz quem demonstra um interesse especial por ela. Sem saber de sua verdadeira identidade, ele passa a observá-la constantemente, acenando, tentando chamar sua atenção e demonstrando um fascínio que desperta o ciúme e a irritação de Swanilda.
+</p>
 <p>
 Incomodada com o comportamento do noivo, Swanilda decide descobrir quem é a misteriosa jovem. Em um primeiro momento, ela tenta conversar com a Coppélia não obtendo qualquer resposta. Em algumas versões do ballet, Swanilda realiza um gesto folclórico popular da época: balança uma espiga de trigo perto da orelha para ouvir seu som, acreditando que isso revelaria a sinceridade ou os sentimentos de Franz, mas quando faz o teste não escuta o som do trigo e Franz, apesar de também não ouvir, mente dizendo que o ouve.
 </p>
@@ -97,82 +114,262 @@ Enquanto isso, Swanilda, que ainda permanece escondida na oficina, decide agir p
 Quando o Dr. Coppelius acredita que sua criação finalmente ganhou vida, inicia-se uma sequência cômica brilhante. Swanilda interpreta uma “boneca viva” de maneira exagerada e divertida. Primeiro, reproduz movimentos rígidos e mecânicos e aos poucos, a falsa Coppélia começa a adquirir comportamentos cada vez mais inesperados: dança diferentes estilos, experimenta emoções, corre pela oficina, mexe nos mecanismos e cria um verdadeiro caos.
 </p>
 <p>
-O inventor, tomado pela euforia, acredita estar diante do sucesso de toda sua vida. Contudo, a situação rapidamente foge de seu controle. Finalmente Franz desperta, e, aproveitando do caos, os dois fogem da oficina. Pouco tempo depois, Coppelius encontra sua boneca .
-<p>
+O inventor, tomado pela euforia, acredita estar diante do sucesso de toda sua vida. Contudo, a situação rapidamente foge de seu controle. Finalmente Franz desperta, e, aproveitando do caos, os dois fogem da oficina. Pouco tempo depois, Coppelius encontra sua boneca.
 </p>
+<p>
 O desfecho devolve a leveza característica da obra. Swanilda e Franz reconciliam-se, deixando para trás os ciúmes, os enganos e as fantasias. A comunidade inteira participa então de uma grande celebração de casamento, marcada por danças festivas, variações brilhantes e um grandioso encerramento.
 </p>
 <p>
 Ao contrário de muitos ballets do século XIX, dominados por fantasmas, amores impossíveis e finais trágicos, Coppélia escolhe a alegria. Sua narrativa fala sobre aparência e realidade, fascínio pela tecnologia, imaginação humana e, acima de tudo, sobre reconhecer o valor das relações reais diante das ilusões da perfeição artificial.
 </p>
 <p>
-É justamente essa combinação entre humor, virtuosismo técnico e reflexão delicadamente atual que mantém Coppélia vivo nos palcos do mundo inteiro. ✨🩰
-</p>
-/*
-<p>Há ballets que parecem feitos de luar e tragédia. *Coppélia* escolheu outro caminho: risos, travessuras, relógios mecânicos e uma boneca tão convincente que confundiu uma vila inteira. Desde sua estreia, esse ballet dança entre fantasia e comédia como uma caixinha de música encantada.
-</p>
-## Contexto histórico
-<p>
-O ballet *Coppélia* estreou em 25 de maio de 1870, na Ópera de Paris, durante um período em que o romantismo ainda influenciava fortemente as artes europeias. O público da época era fascinado por histórias sobrenaturais, autômatos e invenções mecânicas. A Revolução Industrial transformava cidades e imaginários ao mesmo tempo: máquinas começavam a parecer quase humanas, e isso alimentava tanto encanto quanto estranhamento.
-</p>
-<p>
-A obra foi inspirada no conto *Der Sandmann* (“O Homem da Areia”), do escritor alemão E. T. A. Hoffmann. No conto original, a atmosfera é sombria e psicológica. Já o ballet transformou essa ideia em uma comédia leve e brilhante, cheia de humor e dança virtuosa.
-</p>
-<p>
-A estreia também ficou marcada por um acontecimento triste: poucos meses depois, a bailarina principal da produção original, Giuseppina Bozzacchi, morreu muito jovem durante uma epidemia de varíola em Paris. Ela tinha apenas 17 anos.
-</p>*/
----
-
-# Curiosidades sobre *Coppélia*
-
-## 🩰 Um dos ballets mais divertidos do repertório clássico
-<p>
-Enquanto obras como Giselle e O Lago dos Cisnes exploram drama e tragédia, *Coppélia* aposta na comédia. O timing teatral dos bailarinos é tão importante quanto a técnica.
+É justamente essa combinação entre humor, virtuosismo técnico e reflexão delicadamente atual que mantém Coppélia vivo nos palcos do mundo inteiro. 
 </p>
 ---
 
-## 🤖 A obra antecipou debates sobre inteligência artificial
+<h2> Curiosidades sobre Coppélia</h2>
+
+<h3> Um dos ballets mais divertidos do repertório clássico</h3>
 <p>
-A ideia de uma criação artificial indistinguível de um ser humano parecia futurista em 1870. Hoje, muita gente compara *Coppélia* às discussões atuais sobre robôs, androides e inteligência artificial. Uma boneca mecânica que parece viva continua sendo um tema incrivelmente moderno.
+Enquanto obras como Giselle e O Lago dos Cisnes exploram drama e tragédia, Coppélia aposta na comédia. O timing teatral dos bailarinos é tão importante quanto a técnica.
 </p>
 ---
 
-## 🎼 A “Valsa das Horas” quase virou rival de Tchaikovsky
+<h3> A obra antecipou debates sobre inteligência artificial</h3>
 <p>
-A música de Delibes em *Coppélia* ficou tão popular que ajudou a elevar o prestígio das trilhas de ballet. Antes disso, poucos compositores recebiam grande reconhecimento nesse gênero.
+A ideia de uma criação artificial indistinguível de um ser humano parecia futurista em 1870. Hoje, muita gente compara Coppélia às discussões atuais sobre robôs, androides e inteligência artificial. Uma boneca mecânica que parece viva continua sendo um tema incrivelmente moderno.
 </p>
 ---
 
-## 👀 Swanilda é considerada um dos papéis mais difíceis da comédia clássica
+<h3> A “Valsa das Horas” quase virou rival de Tchaikovsky</h3>
+<p>
+A música de Delibes em Coppélia ficou tão popular que ajudou a elevar o prestígio das trilhas de ballet. Antes disso, poucos compositores recebiam grande reconhecimento nesse gênero.
+</p>
+---
 
-A bailarina precisa unir:
+<h3> Swanilda é considerada um dos papéis mais difíceis da comédia clássica</h3>
+
+<p>A bailarina precisa unir:</p>
 <ul>
-* técnica refinada;
-* atuação cômica;
-* rapidez teatral;
-* precisão musical;
-* carisma de protagonista.
+<li> técnica refinada;</li>
+<li> atuação cômica;</li>
+<li> rapidez teatral;</li>
+<li> precisão musical;</li>
+<li> carisma de protagonista.</li>
 <ul>
 <p>Ela dança, interpreta, provoca, engana e praticamente conduz toda a narrativa.</p>
 
 ---
 
-## 🎭 Dr. Coppelius virou um arquétipo do “inventor obcecado”
+<h3> Dr. Coppelius virou um arquétipo do “inventor obcecado”</h3>
 <p>
 O personagem influenciou diversas releituras artísticas posteriores. Ele lembra figuras clássicas da literatura e do cinema: cientistas solitários tentando criar vida artificial enquanto se afastam do mundo real.
 </p>
 ---
 
- Por que *Coppélia* continua encantando?
+<h3> Por que Coppélia continua encantando?</h3>
 <p>
 Porque mistura delicadeza e humor com uma elegância rara.
 Porque transforma uma oficina cheia de engrenagens em poesia dançada.
 E porque, no centro de tudo, existe uma pergunta que continua ecoando séculos depois:
 </p>
-<p>o que realmente nos torna humanos? 🩰✨<p>
+<p>o que realmente nos torna humanos?<p>
 `;
     } else if (id == 3) {
-        conteudo.innerHTML = "<h1>OI</h1>"
+      conteudo.innerHTML = `
+      <h3>A História do Ballet: Da Corte Renascentista aos Palcos do Mundo</h3>
+<p>Compreender a história do ballet vai muito além de memorizar datas ou nomes famosos. É entender como a dança se transformou em uma linguagem universal capaz de expressar emoções, narrar histórias e refletir os valores de cada época. Ao longo de mais de cinco séculos, o ballet deixou de ser um entretenimento aristocrático para se tornar uma das formas de arte mais sofisticadas e influentes do mundo.</p>
+
+<h3> 1. A Origem da Palavra “Ballet”</h3>
+<p>A própria palavra “ballet” revela a trajetória histórica dessa arte.</p>
+<p>| Língua   | Termo      | Significado                      |</p>
+<p>| -------- | ---------- | -------------------------------- |</p>
+<p>| Grego    | Ballizo    | Dançar, saltar                   |</p>
+<p>| Latim    | Ballare    | Dançar                           |</p>
+<p>| Italiano | Balletto   | Pequena dança ou encontro social |</p>
+<p>| Francês  | Ballet     | Dança teatral formalizada        |</p>
+<p>
+  O termo surgiu na Itália renascentista, onde os balletti faziam parte das celebrações aristocráticas. Com o tempo, a dança ganhou sofisticação técnica e passou a ocupar os palcos franceses, tornando-se uma arte organizada e profissional.
+</p>
+<p>Essa transformação marcou a passagem da dança social para o espetáculo cênico.</p>
+
+<h3> 2. O Surgimento do Ballet nas Cortes Italianas</h3>
+<p>
+  O ballet nasceu durante o Renascimento italiano, nos séculos XV e XVI. Na época, grandes festas da nobreza combinavam música, poesia, teatro e dança em apresentações luxuosas.
+  </p>
+<p>
+A figura decisiva para a expansão do ballet foi Catarina de Médici. Em 1533, ao se casar com Henrique II da França, ela levou artistas italianos para a corte francesa e ajudou a transformar Paris no principal centro cultural da dança europeia.
+Um marco importante desse período foi o Ballet Comique de la Reine (1581), considerado o primeiro grande espetáculo de ballet da história. A produção reuniu coreografia, música, figurinos e narrativa de maneira integrada — algo revolucionário para a época.
+</p>
+<p>
+Nesse período, o ballet ainda era praticado pela própria aristocracia. Os nobres dançavam para demonstrar elegância, refinamento e status social.
+</p>
+<h3> 3. Luís XIV e a Profissionalização do Ballet</h3>
+<p>
+  Nenhuma figura foi tão importante para o desenvolvimento do ballet quanto o rei francês Luís XIV.
+</p>
+<p>
+Apaixonado pela dança, o monarca participou de diversos espetáculos e ficou conhecido como “Rei Sol” após interpretar o Sol em Ballet de la Nuit (1653). Para ele, o ballet era também um instrumento político: uma demonstração do poder e da grandiosidade da monarquia francesa.
+</p>
+<p>
+Foi durante seu reinado que o ballet deixou de ser um passatempo da nobreza e passou a se tornar uma profissão.
+</p>
+
+<span id= "negrito"> Instituições criadas por Luís XIV</span>
+<ul>
+<li>Académie Royale de Danse (1661)</li>
+<li>  Primeira instituição oficial dedicada ao ensino da dança.</li>
+<li> Académie Royale de Musique (1669)</li>
+<li>  Origem da atual Ópera de Paris.</li>
+<li> Escola da Ópera de Paris (1713)</li>
+<li>  Uma das escolas de ballet mais importantes do mundo até hoje.</li>
+</ul>
+
+<p>
+Outra mudança histórica ocorreu em 1681, quando as mulheres passaram a ocupar os papéis principais nos palcos. Antes disso, homens interpretavam inclusive personagens femininas.
+</p>
+<p>
+A partir desse momento, o ballet começou a exigir treinamento técnico rigoroso e dedicação integral.
+</p>
+
+<h3> 4. Pierre Beauchamps e a Linguagem Universal do Ballet</h3>
+
+<p>Com a expansão do ballet, surgiu a necessidade de padronizar os movimentos e criar uma técnica comum.</p>
+
+<p>O responsável por essa organização foi Pierre Beauchamps, mestre de ballet da corte francesa.</p>
+
+<span id="negrito"> Seu maior legado:</span>
+<ul>
+<li> A criação das cinco posições básicas dos pés e braços</li>
+<li> A sistematização da técnica clássica</li>
+<li> A consolidação do francês como idioma oficial do ballet</li>
+</ul>
+
+<p>Até hoje, termos como plié, arabesque, jeté e pirouette são usados em qualquer escola do mundo.</p>
+
+<p>Essa padronização permitiu que bailarinos de diferentes países compartilhassem a mesma linguagem corporal.</p>
+
+<h3> 5. Jean-Georges Noverre e o Ballet Narrativo</h3>
+
+<p>No século XVIII, o ballet começou a passar por uma transformação artística importante.</p>
+
+<p>O coreógrafo francês Jean-Georges Noverre criticava os espetáculos excessivamente mecânicos e defendia uma dança mais emocional e expressiva.</p>
+
+<p>Em sua obra Cartas sobre a Dança (1760), ele propôs o conceito de Ballet d’Action, no qual cada movimento deveria ajudar a contar a história.</p>
+
+<p id="negrito"> As principais mudanças defendidas por Noverre:</p>
+<ul>
+<li> Remoção das máscaras pesadas</li>
+<li> Mais naturalidade nos movimentos</li>
+<li> Uso da pantomima</li>
+<li> Maior expressão facial</li>
+<li> Integração entre técnica e emoção</li>
+</ul>
+
+<p>Graças a essas ideias, o ballet deixou de ser apenas decorativo e passou a funcionar como verdadeira narrativa dramática.</p>
+
+<h3> 6. O Ballet Romântico e o Sonho do Sobrenatural</h3>
+
+<p>O século XIX marcou a chamada Era Romântica do ballet.</p>
+
+<p>
+  Os temas mitológicos deram lugar a histórias sobre amor impossível, espíritos, sonhos e criaturas sobrenaturais. A leveza e a delicadeza tornaram-se características centrais da dança.
+</p>
+
+<h3> Principais características do ballet romântico</h3>
+
+<p>|  Ballet da Corte   | Ballet Romântico            |</p>
+<p>| ------------------- | --------------------------- |</p>
+<p>| Temas mitológicos | Amor e fantasia             |</p>
+<p>| Figurinos pesados | Tutus leves e brancos       |</p>
+<p>| Técnica rígida    | Movimentos suaves e fluidos |</p>
+<p>| Ênfase na nobreza | Ênfase na emoção            |</p>
+
+<h4> Giselle (1841): a obra-prima romântica</h4>
+
+<p>Considerado um dos ballets mais importantes da história, Giselle conta a história de uma jovem que morre após descobrir uma traição amorosa e retorna como espírito.</p>
+
+<h4>A obra consolidou o chamado Ballet Blanc, caracterizado por:</h4>
+<ul>
+<li> tutus brancos,</li>
+<li> atmosfera sobrenatural,</li>
+<li> iluminação suave,</li>
+<li> sensação de leveza e fantasia.</li>
+</ul>
+<p>
+Foi também nesse período que as sapatilhas de ponta ganharam protagonismo, criando a ilusão de que as bailarinas flutuavam no palco.
+</p>
+
+
+<h3> 7. As Sapatilhas de Ponta e a Evolução Técnica</h3>
+
+<p>As sapatilhas de ponta representam um dos maiores símbolos do ballet clássico.</p>
+
+<p>Embora experiências iniciais tenham surgido ainda no século XVIII, foi no período romântico que elas se desenvolveram tecnicamente.
+</p>
+<p>
+A bailarina Marie Taglioni ajudou a popularizar o uso das pontas em La Sylphide (1832), reforçando a estética etérea característica da época.
+</p>
+<h4>Com o avanço das sapatilhas:</h4>
+<ul>
+<li> os saltos se tornaram mais complexos,</li>
+<li> o equilíbrio evoluiu,</li>
+<li> a sensação de leveza ganhou destaque.</li>
+</ul>
+<p>
+Ao longo do tempo, os figurinos também mudaram. Os tutus ficaram menores e mais leves, permitindo maior liberdade de movimento e valorizando a técnica das pernas.
+</p>
+
+
+<h3> 8. A Expansão Mundial do Ballet</h3>
+
+<p>Após o enfraquecimento do ballet na França no século XIX, outros países passaram a desenvolver suas próprias escolas e métodos.
+</p>
+
+<h3>Principais métodos do ballet clássico</h3>
+
+<h4> Método Vaganova (Rússia)</h4>
+
+<p> Técnica forte e precisa</p>
+<p> Grande expressividade dos braços</p>
+<p> Formação física rigorosa</p>
+
+<h3> Método Cecchetti (Itália)</h3>
+
+<p> Ênfase na coordenação e agilidade</p>
+<p> Exercícios organizados de forma progressiva</p>
+
+<h3> Método Bournonville (Dinamarca)</h3>
+
+<p> Saltos rápidos e leves</p>
+<p> Movimentos fluidos</p>
+<p> Destaque para a dança masculina</p>
+
+<p>No século XX, companhias como os Ballets Russes, de Sergei Diaghilev, revolucionaram o ballet ao unir dança, música, moda e artes visuais.</p>
+
+<p>Mais tarde, coreógrafos como George Balanchine deram origem ao ballet neoclássico, aproximando a técnica clássica da modernidade.</p>
+
+<h3> 9. Os Princípios Fundamentais do Ballet</h3>
+<h4>Mesmo após tantas transformações históricas, alguns princípios permanecem essenciais até hoje:</h4>
+<p> En dehors: rotação externa das pernas;</p>
+<p> Postura vertical: alinhamento corporal e equilíbrio;</p>
+<p> Leveza: ilusão de desafiar a gravidade;</p>
+<p> Harmonia: linhas corporais elegantes;</p>
+<p> Disciplina: repetição constante e precisão técnica.</p>
+
+<p>Esses fundamentos atravessaram séculos e continuam sendo a base da formação de qualquer bailarino.<p>
+
+<h2> Considerações Finais</h2>
+
+<p>A história do ballet é também a história da transformação do corpo em arte. Das festas renascentistas italianas aos grandes teatros contemporâneos, o ballet atravessou revoluções culturais, políticas e estéticas sem perder sua essência.
+</p>
+<p>
+  Mais do que uma sequência de passos, o ballet representa disciplina, expressão e tradição. Cada aula, cada movimento e cada apresentação carregam séculos de evolução técnica e artística.
+</p>
+<p>
+Ao estudar ballet, o bailarino não aprende apenas uma dança — ele participa de uma herança cultural construída ao longo de mais de 500 anos.
+</p>
+`;
     }
-    }
+  }
 </script>

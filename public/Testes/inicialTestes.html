@@ -4,22 +4,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coppélia</title>
-  <link rel="stylesheet" href="../css/estilo.css">
+  <title>Teste</title>
 
+  <link rel="stylesheet" href="../css/estilo.css">
 </head>
 
 <body>
-
+  <!--header inicio-->
   <div class="header">
     <div class="container">
       <img id="logo" src="./assets/imgs/logo.png" alt="">      <ul class="navbar">
-      <ul class="navbar">
         <li>
           <a href="../index.html">Inicial</a>
         </li>
         <li>
-          <a href="../Testes/inicialTestes.html">Testes</a>
+          <a href="../conteudos/inicial.html">Conteúdos</a>
         </li>
         <li>|</li>
         <li>
@@ -27,55 +26,48 @@
           <a href="../login.html">Login</a>
         </div>
         </li>
-        <li>
-          <a href="../cadastro.html">Cadastro</a>
+        <li class="agora">
+          <a href="#">Testes</a>
         </li>
       </ul>
     </div>
   </div>
+  <!--header fim-->
+<h3>Está pronto para testar seus conhecimentos?</h3>
+<h3>Selecione um teste para iniciar sua evolução</h3>
+  <button onclick="iniciar(1)">Iniciar quiz</button>
 
   <div class="social">
     <div class="container">
       <div class="previa">
-
         <img
           src="https://4.bp.blogspot.com/-j4EP6WSytSM/VRsIg-dzmHI/AAAAAAAAACc/G_v23HeKmgY/s1600/Bankoboev.Ru_edgar_zhermen_iler_dega_baletnyi_klass_opery_na_ulice_pelete.jpg"
           alt="">
         <div class="previa texto">
           <h4>História do ballet</h4>
           <p>O ballet surgiu durante o período do Renascimento, na Itália, no século XV, como uma forma de entretenimento nas festas da nobreza. Mais tarde, foi levado para a França, onde se desenvolveu e ganhou regras e técnicas próprias. No século XVII, o rei Luís XIV ajudou a popularizar essa arte ao criar a primeira escola oficial de dança. Com o passar do tempo, o ballet se espalhou pelo mundo, evoluindo para diferentes estilos e se tornando uma das formas de dança mais conhecidas e admiradas, unindo técnica, expressão corporal e arte.</p>
-          <button onclick="verConteudo(1)">Ver conteúdo</button>
+          <button onclick="iniciar(1)">Iniciar teste</button>
         </div>
 
         <div class="previa texto" id="lago">
           <h4>Lago dos Cisnes</h4>
           <p>Lago dos Cisnes é um dos ballets mais famosos do mundo, criado pelo compositor Piotr Ilitch Tchaikovsky. A história conta a jornada do príncipe Siegfried, que se apaixona por Odette, uma princesa transformada em cisne por um feitiço. Para quebrar o encanto, ele precisa jurar amor verdadeiro, mas acaba sendo enganado pelo vilão e enfrenta desafios para salvar sua amada. </p>
           </p>
-          <button onclick="verConteudo(2)">Ver conteúdo</button>
+          <button onclick="iniciar(2)">Iniciar teste</button>
         </div>
         <img src="https://th.bing.com/th/id/OIP.JxjXytjMaRyrjn2NK7oK0QHaEw?w=288&h=185&c=7&r=0&o=7&pid=1.7&rm=3" alt="">
 
-        <img
-          src="https://theartsdesk.com/sites/default/files/mastimages/Coppelia.%20Francesca%20Hayward%20as%20Swanilda%20and%20Gary%20Avis%20as%20Dr%20Coppelius.%20(c)%20ROH%2C%202019.%20Photographed%20by%20Bill%20Cooper.%20(3).jpg"
+        <img src="https://theartsdesk.com/sites/default/files/mastimages/Coppelia.%20Francesca%20Hayward%20as%20Swanilda%20and%20Gary%20Avis%20as%20Dr%20Coppelius.%20(c)%20ROH%2C%202019.%20Photographed%20by%20Bill%20Cooper.%20(3).jpg"
           alt="">
         <div class="previa texto" id="copelia">
           <h4>Coppélia</h4>
-          <p>Coppélia é um ballet divertido e encantador que narra a história de Swanilda e Franz, um jovem casal. Franz se encanta por Coppélia, uma bela moça que aparece na janela de uma oficina, sem saber que ela é, na verdade, uma boneca mecânica criada pelo misterioso doutor Coppélius. Com humor e confusões, o ballet mostra como Swanilda descobre a verdade e reconquista o amor de Franz.          </p>
-          <button onclick="verConteudo(3)">Ver conteúdo</button>
+          <p>Coppélia é um ballet divertido e encantador que narra a história de Swanilda e Franz, um jovem casal. Franz se encanta por Coppélia, uma bela moça que aparece na janela de uma oficina, sem saber que ela é, na verdade, uma boneca mecânica criada pelo misterioso doutor Coppélius. Com humor e confusões, o ballet mostra como Swanilda descobre a verdade e reconquista o amor de Franz.
+          </p>
+          <button onclick="iniciar(3)">Iniciar teste</button>
         </div>
       </div>
     </div>
   </div>
-
-
-  <div class="footer">
-    <div class="container">
-      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2026</h4>
-      <span class="version">v1.0.0</span>
-    </div>
-  </div>
-  <h5>Tem uma sugestão ou comentario? </h5>
-  <h5>Envie um e-mail para: mariana.xavier@sptech.school</h5>
 
 </body>
 
@@ -84,11 +76,16 @@
 <script>
   if (sessionStorage.ID_USUARIO != undefined) {
     logado.innerHTML = '<a href="../dashboard/dash.html">Dashboard</a>';
+  } else{
+    alert("Para registrar seu progreço faça login.");
+    setTimeout(function() {
+      window.location = "../login.html"
+    }, 2000);
   };
-  function verConteudo(id) {
-    sessionStorage.CONTEUDO = id;
+  function iniciar(id) {
+    sessionStorage.TESTE = id;
     setTimeout(function () {
-      window.location = "./conteudos.html";
+      window.location = "../Testes.html";
     }, 1000);
   };
 </script>
