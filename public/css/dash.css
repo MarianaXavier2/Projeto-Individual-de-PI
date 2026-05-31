@@ -20,6 +20,11 @@ body {
     position: fixed;
 }
 
+#logo {
+  width: 120px;
+  min-height: 120px;
+}
+
 .links {
     display: flex;
     flex-direction: column;

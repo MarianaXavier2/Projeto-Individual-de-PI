@@ -74,6 +74,7 @@
           </div>
           <button class="botao" onclick="cadastrar()">Cadastrar</button>
         </div>
+        <div id="erro"></div>
         <div id="div_aguardar" class="loading-div">
           <img src="./assets/circle-loading.gif" id="loading-gif" />
         </div>
@@ -112,6 +113,9 @@
     // var codigoVar = codigo_input.value;
     var idEmpresaVincular
 
+    //.com etc
+    let com = emailVar.indexOf(".com");
+    let arroba = emailVar.indexOf("@");
     // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
@@ -121,11 +125,19 @@
       // codigoVar == ""
     ) {
       cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
+      erro.innerHTML =
+        "(Por favor preecha todos os campos)";
+      if (senhaVar != confirmacaoSenhaVar){
+        erro.innerHTML = "As duas senhas devem serer iguais";
+      };
       finalizarAguardar();
       return false;
+    } else if (com < arroba || com < 7 || arroba < 3){
+      erro.innerHTML = "Insira um email valido"
+      return
+    } else if (senhaVar > 7) {
+      erro.innerHTML = "A senha precisa ter no mínimo 8 digitos"
+      return
     } else {
       setInterval(sumirMensagem, 5000);
     }

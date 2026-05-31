@@ -518,7 +518,7 @@ input {
 }
 /*Teste*/
 
-#quiz {
+.caixa {
   background: #fae3e3e8;
   border-radius: 25px;
 }

@@ -37,8 +37,10 @@
 
   <div class="socialTeC">
     <div id="center">
-      <div class="conteudo" id="quiz"></div>
+      <div class="conteudo caixa" id="quiz"></div>
+  <button class="botaoTeste" onclick="enviarPontos()">Enviar</button>
     </div>
+    
   </div>
 
   <div class="footer">
@@ -260,13 +262,12 @@
     <option value="0">Uma busca por temas puramente abstratos e musicais.</option>
     <option value="0">Um foco exclusivo em temas religiosos e históricos.</option>
   </select>
-  <button class="botaoTeste" onclick="enviarPontos()">Enviar</button>
 </div>
   <div id="mensagem_erro"></div>
       `;
     } else if (id == 1){
       quiz.innerHTML = `
-      
+      <h2>Historia do Ballet</h2>
 <p> Quais temas se tornaram centrais no Ballet Romântico, contrastando com os temas mitológicos do Ballet da Corte?</p>
   <select name="questao1" id="questao1">
 
@@ -403,8 +404,9 @@
  O que as sapatilhas de ponta ajudaram a criar na estética do ballet romântico e na evolução técnica?
 </p>
   <select name="questao" id="questao10">
-
+    
     <option value="1"> A ilusão de que as bailarinas flutuavam no palco, permitindo saltos mais complexos e equilíbrio evoluído </option>
+
 
     <option value="0"> Uma sensação de peso e a necessidade de movimentos mais robustos </option>
 
